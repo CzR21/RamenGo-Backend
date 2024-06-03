@@ -32,14 +32,6 @@ builder.Services.AddCors(options =>
                             policy.AllowAnyMethod();
                             policy.AllowAnyHeader();
                         });
-
-    options.AddPolicy("CorsPolicy",
-                    builder => builder
-                        .AllowAnyOrigin()
-                        .AllowAnyMethod()
-                        .AllowAnyHeader());
-
-    options.AddPolicy("AllowAllOrigins", builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 });
 
 var app = builder.Build();
@@ -47,9 +39,9 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 
-app.UseMiddleware<APIKeyMiddleware>();
-
 app.UseCors("AllowAll");
+
+app.UseMiddleware<APIKeyMiddleware>();
 
 app.UseHttpsRedirection();
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RamenGo_API_Application.Interfaces;
 using RamenGo_API_Application.Models;
@@ -72,12 +73,12 @@ namespace RamenGo_API_Service.Controllers
         /// Place an order
         /// </summary>
         /// <param name="apiKey"></param>
+        [HttpPost]
+        [Route("order")]
         [ProducesResponseType(201, Type = typeof(OrderResponseModel))]
         [ProducesResponseType(400, Type = typeof(ErrorModel))]
         [ProducesResponseType(403, Type = typeof(ErrorModel))]
         [ProducesResponseType(500, Type = typeof(ErrorModel))]
-        [HttpPost]
-        [Route("orders")]
         public async Task<IActionResult> PostOrder([FromHeader(Name = "x-api-key"), Required] string apiKey, [FromBody]OrderRequestModel model)
         {
             try

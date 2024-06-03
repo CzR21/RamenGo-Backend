@@ -1,4 +1,5 @@
-﻿using RamenGo_API_Application.Models;
+﻿using Microsoft.AspNetCore.Cors;
+using RamenGo_API_Application.Models;
 using RamenGo_API_Domain.Options;
 
 namespace RamenGo_API_Service.Middlewares
@@ -14,6 +15,7 @@ namespace RamenGo_API_Service.Middlewares
             _apiKeyOption = apiKeyOption;
         }
 
+        //[EnableCors("AllowAllOrigins")]
         public async Task InvokeAsync(HttpContext context)
         {
             if (!context.Request.Headers.TryGetValue("x-api-key", out var extractedApiKey) || !_apiKeyOption.Secret.Equals(extractedApiKey))
