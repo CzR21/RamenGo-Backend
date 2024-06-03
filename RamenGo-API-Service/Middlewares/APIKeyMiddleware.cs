@@ -15,9 +15,17 @@ namespace RamenGo_API_Service.Middlewares
             _apiKeyOption = apiKeyOption;
         }
 
-        //[EnableCors("AllowAllOrigins")]
         public async Task InvokeAsync(HttpContext context)
         {
+            var path = context.Request.Path;
+
+            //Librerar swagger
+            if (path.StartsWithSegments("/swagger") || path == "/index.html")
+            {
+                await _next(context);
+                return;
+            }
+
             if (!context.Request.Headers.TryGetValue("x-api-key", out var extractedApiKey) || !_apiKeyOption.Secret.Equals(extractedApiKey))
             {
                 context.Response.StatusCode = 403;
