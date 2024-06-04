@@ -16,7 +16,6 @@ O objetivo deste projeto é construir uma API que forneça endpoints para listar
 ## Configuração e Instalação
 Antes de executar a aplicação, certifique-se de ter o .NET 8.0 e instalado em sua máquina, e també mo visual staudio para uma usabilidade mais fácil do projeto.
 
-**Front-end:**
 1. Clone o repositório do projeto do GitHub:
 ```
 git clone https://github.com/CzR21/RamenGo-Backend.git
@@ -29,16 +28,6 @@ cd RamenGo-Backend
 ```
 dotnet run
 ```
-
-## Tecnologias Utilizadas
-**API:**
-- React: Para a construção da interface do usuário.
-- TypeScript: Para adicionar tipagem estática ao JavaScript, aumentando a robustez do código.
-
-**Hosting:**
-- AWS Lambda: Para execução de código.
-- AWS API Gateway : Para criar, publicar, manter, monitorar e proteger APIs.
-- AWS RDS PostgreSQL: Para armazenamento de dados dos pacientes.
 
 ## Documentação da API
 
