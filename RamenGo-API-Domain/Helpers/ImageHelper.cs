@@ -12,9 +12,9 @@ namespace RamenGo_API_Domain.Helpers
         {
             return ramenImage switch
             {
-                "Chasu" => "https://tech.redventures.com.br/icons/ramen/ramenChasu.png",
-                "Yasai Vegetarian" => "https://tech.redventures.com.br/icons/ramen/ramenKaraague.png", //TODO: Salva no s3
-                "Karaague" => "https://tech.redventures.com.br/icons/ramen/ramenKaraague.png",
+                "Chasu" => "https://ramen-go-frontend.s3.amazonaws.com/assets/ramens/chasu.png",
+                "Yasai Vegetarian" => "https://ramen-go-frontend.s3.amazonaws.com/assets/ramens/vegetable.png",
+                "Karaague" => "https://ramen-go-frontend.s3.amazonaws.com/assets/ramens/karaague.png",
                 _ => throw new Exception("Invalid ramen.")
             };
         }
